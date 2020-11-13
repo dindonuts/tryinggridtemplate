@@ -1,0 +1,136 @@
+html {
+    font-size: 100%;
+    box-sizing: border-box;
+    height: 100%;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: inherit;
+}
+
+body {
+    // height: 100%;
+    margin: 0;
+    padding: 0;
+    font-family: "Poppins", sans-serif;
+    font-weight: 400;
+    overflow-x: hidden;
+    background-color: $VeryLightGray;
+}
+
+.box {
+    margin: 0;
+    padding: 0;
+
+    p {
+        color: $GrayishBlue;
+        font-size: $font-sm;
+        margin: 0;
+    }
+
+    .title {
+        text-align: center;
+        color: $VeryDarkBlue;
+        padding: 1.875rem;
+
+        h1 {
+            margin: 0;
+        }
+
+        h1:first-child {
+            font-weight: 200;
+        }
+
+        @include breakpoint-up(large) {
+            padding: 2rem 10rem;
+        }
+    }
+
+    .container {
+        display: grid;
+        grid-template-areas:
+            "one"
+            "two"
+            "three"
+            "four";
+        gap: 1.875rem;
+        padding: 2rem;
+        // max-width: 16rem;
+        margin-bottom: 2rem;
+
+        @include breakpoint-up(large) {
+            grid-template-columns: 31% 31% 31%;
+            grid-template-rows: 20% 20% 20% 20%;
+            grid-template-areas:
+                ". two ."
+                "one two four"
+                "one three four"
+                ". three .";
+            column-gap: 1.875rem;
+            row-gap: 2.075rem;
+            padding: 0 10rem;
+            color: #4c4e61;
+        }
+        &__one,
+        &__two,
+        &__three,
+        &__four {
+            border-radius: 0.625rem;
+            box-shadow: 0px 5px 20px $GrayishBlue;
+            min-height: 15.625rem;
+            min-width: 16rem;
+
+            padding: 1.1875rem 2.0625rem;
+
+            .img {
+                background-repeat: no-repeat;
+                background-position: 100% 100%;
+                background-size: 3.375rem;
+                height: 6.375rem;
+
+                &_one {
+                    background-image: url("/images/icon-supervisor.svg");
+                }
+
+                &_two {
+                    background-image: url("/images/icon-team-builder.svg");
+                }
+
+                &_three {
+                    background-image: url("/images/icon-karma.svg");
+                }
+
+                &_four {
+                    background-image: url("/images/icon-calculator.svg");
+                }
+            }
+
+            h2 {
+                margin: 0;
+                font-size: $font-med;
+            }
+        }
+
+        &__one {
+            grid-area: one;
+            border-top: 0.3125rem solid $Cyan;
+        }
+
+        &__two {
+            grid-area: two;
+            border-top: 0.3125rem solid $Red;
+        }
+
+        &__three {
+            grid-area: three;
+            border-top: 0.3125rem solid $Orange;
+        }
+
+        &__four {
+            grid-area: four;
+            border-top: 0.3125rem solid $Blue;
+        }
+    }
+}
